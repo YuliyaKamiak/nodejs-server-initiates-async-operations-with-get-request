@@ -1,8 +1,8 @@
 # nodejs-server-initiates-async-operations-with-get-request
 
-## Implementation of an http-server that, when accessed with a GET request, initiates asynchronous operations
+## HTTP-server implementation, when accessed with a GET request, initiates asynchronous operations
 
-* При подключении к серверу начинается вывод в консоль текущего времени через равные интервалы. 
-* Остановка вывода в консоль через указанное время и возврат текущей даты и времени пользователю. 
-* Интервал и временной промежуток должны задаваться при запуске сервера с помощью переменных окружения. 
-* Стабильная работа сервера при нескольких одновременных запросах
+* After connecting to the server the current time output to the console starts at regular intervals. 
+* Stop output to the console after the specified time and return the date and time of use. 
+* The interval and time interval must be set when starting the server using environment variables. 
+* Stable server operation with multiple simultaneous requests.
