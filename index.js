@@ -6,7 +6,7 @@ const args = yargs
   .help('help')
   .alias('help', 'h')
   .alias('version', 'v')
-  .example('node $0 index.js --interval=num --limit=num')
+  .example('node $0 index.js --interval num --limit num')
   .option('interval', {
       alias: 'i',
       describe: 'Interval of output to the console of the current time',
