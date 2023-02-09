@@ -1,30 +1,32 @@
 const express = require('express');
 const yargs = require('yargs');
+require('dotenv').config()
 
 const args = yargs
-  .usage('Usage: node $0 [options]')
+  .usage('Usage: [env variables] node $0 [options]')
   .help('help')
   .alias('help', 'h')
   .alias('version', 'v')
-  .example('node $0 index.js --interval num --limit num')
-  .option('interval', {
-      alias: 'i',
-      describe: 'Interval of output to the console of the current time',
-      demandOption: true,
-      default: 1
+  .example('APP_LIMIT=2 APP_INTERVAL=30 npm run start')
+  .env('APP')
+  .option('l', {
+    alias: 'INTERVAL',
+    describe: 'Interval of output to the console of the current time',
+    demandOption: true,
+    default: 1
   })
-  .option('limit', {
-      alias: 'l',
-      describe: 'The time (seconds) after which the console output will stop',
-      default: 20
+  .option('i', {
+    alias: 'LIMIT',
+    describe: 'The time (seconds) after which the console output will stop',
+    default: 20
   })
   .epilog('My first http-server implementation')
   .argv
 
 const app = express()
 
-const LIMIT = args.limit * 1000;
-const INTERVAL = args.interval * 1000;
+const LIMIT = process.env.APP_LIMIT * 1000;
+const INTERVAL = process.env.APP_INTERVAL * 1000;
 const PORT = 3000;
 
 let connections = [];
